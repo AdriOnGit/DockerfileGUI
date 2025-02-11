@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="it">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Dockerfile generator</title>
+
+    <!-- CSS Bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous" />
+</head>
+
+<body>
+    <h1>Dockerfile Generator</h1>
+    <!-- TODO: cambiare localhost!!!-->
+    <form id="dockerfileForm" method="POST" action="http://localhost:8080/DockerfileGenerator.php">
+
+        <!-- FROM -->
+        <div class="command">
+            <label for="from">FROM </label>
+            <input type="text" id="from" name="from" placeholder="Inserisci l'immagine base (es: ubuntu)" required>
+            <br />
+        </div>
+
+        <!-- LABEL -->
+        <div class="command" id="labelCommands">
+            <label for="label">LABEL </label>
+            <button id="addLabelbtn" type="button">Aggiungi</button><br>
+        </div>
+
+        <!-- RUN -->
+        <div class="command" id="runCommands">
+            <label for="run">RUN </label>
+            <button id="addRunbtn" type="button">Aggiungi</button><br>
+        </div>
+
+        <!-- Conferma e submit -->
+        <button type="submit">Genera il Dockerfile!</button>
+    </form>
+
+    <!-- jQuery -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <!-- JS Bootstrap -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+        crossorigin="anonymous"></script>
+    <!-- Gestione bottoni script -->
+    <script src="script/buttonHandler.js"></script>
+</body>
+
+</html>
