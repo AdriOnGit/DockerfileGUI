@@ -1,11 +1,9 @@
 <?php
-
 // Scrive i comandi con piu' istanze sul file
 function addCommand($commandType, $file) {
     if (isset($_POST[$commandType])) {
         $commands = $_POST[$commandType];
 
-        // Insert all commands of the current type
         foreach ($commands as $command) {
             $txt = strtoupper($commandType) . " " . $command . "\n"; 
             fwrite($file, $txt);
@@ -27,8 +25,23 @@ fwrite($file, $txt);
 // Inserimento LABEL
 addCommand('label', $file);
 
+// Inserimento ARG
+addCommand('arg', $file);
+
+// Inserimento ENV
+addCommand('env', $file);
+
 // Inserimento RUN
 addCommand('run', $file);
+
+// Inserimento COPY
+addCommand('copy', $file);
+
+// Inserimento ADD
+addCommand('add', $file);
+
+// Inserimento EXPOSE
+addCommand('expose', $file);
 
 fclose($file);
 
