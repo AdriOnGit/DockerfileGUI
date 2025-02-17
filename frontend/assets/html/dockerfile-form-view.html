@@ -1,0 +1,101 @@
+<!-- Sezione Sinistra: Form -->
+<div class="sub-text text-center">
+    <h4>Istruzioni DockerFile</h4>
+</div>
+
+<div class="card p-4 form-box">
+    <form id="dockerfileForm" method="POST" action="http://localhost:8080/DockerfileGenerator.php">
+        
+        <div class="mb-3" id="fromCommands">
+            <label for="from" class="form-label">FROM</label>
+            <input type="text" class="form-control" id="from" name="from[]" placeholder="es: ubuntu" required>
+        </div>
+        
+        <!-- Comandi spostabili -->
+        <div class="sortable-container">
+
+            <div class="mb-3" id="labelCommands">
+                <label class="form-label">LABEL</label>
+                <button id="addLabelbtn" type="button" class="btn btn-secondary btn-sm">Aggiungi</button>
+            </div>
+
+            <div class="mb-3" id="argCommands">
+                <label class="form-label">ARG</label>
+                <button id="addArgbtn" type="button" class="btn btn-secondary btn-sm">Aggiungi</button>
+            </div>
+
+            <div class="mb-3" id="envCommands">
+                <label class="form-label">ENV</label>
+                <button id="addEnvbtn" type="button" class="btn btn-secondary btn-sm">Aggiungi</button>
+            </div>
+
+            <div class="mb-3" id="healthcheckCommands">
+                <label class="form-label">HEALTHCHECK</label>
+                <button id="addHealthcheckbtn" type="button" class="btn btn-secondary btn-sm">Aggiungi</button>
+            </div>
+
+            <div class="mb-3" id="runCommands">
+                <label class="form-label">RUN</label>
+                <button id="addRunbtn" type="button" class="btn btn-secondary btn-sm">Aggiungi</button>
+            </div>
+
+            <div class="mb-3" id="shellCommands">
+                <label class="form-label">SHELL</label>
+                <button id="addShellbtn" type="button" class="btn btn-secondary btn-sm">Aggiungi</button>
+            </div>
+
+            <div class="mb-3" id="copyCommands">
+                <label class="form-label">COPY</label>
+                <button id="addCopybtn" type="button" class="btn btn-secondary btn-sm">Aggiungi</button>
+            </div>
+
+            <div class="mb-3" id="addCommands">
+                <label class="form-label">ADD</label>
+                <button id="addAddbtn" type="button" class="btn btn-secondary btn-sm">Aggiungi</button>
+            </div>
+
+            <div class="mb-3" id="workdirCommands">
+                <label class="form-label">WORKDIR</label>
+                <button id="addWorkdirbtn" type="button" class="btn btn-secondary btn-sm">Aggiungi</button>
+            </div>
+
+            <div class="mb-3" id="userCommands">
+                <label class="form-label">USER</label>
+                <button id="addUserbtn" type="button" class="btn btn-secondary btn-sm">Aggiungi</button>
+            </div>
+
+            <div class="mb-3" id="exposeCommands">
+                <label class="form-label">EXPOSE</label>
+                <button id="addExposebtn" type="button" class="btn btn-secondary btn-sm">Aggiungi</button>
+            </div>
+
+            <div class="mb-3" id="volumeCommands">
+                <label class="form-label">VOLUME</label>
+                <button id="addVolumebtn" type="button" class="btn btn-secondary btn-sm">Aggiungi</button>
+            </div>
+            
+            <div class="mb-3" id="entrypointCommands">
+                <label class="form-label">ENTRYPOINT</label>
+                <button id="addEntrypointbtn" type="button" class="btn btn-secondary btn-sm">Aggiungi</button>
+            </div>
+
+            <div class="mb-3" id="cmdCommands">
+                <label class="form-label">CMD</label>
+                <button id="addCmdbtn" type="button" class="btn btn-secondary btn-sm">Aggiungi</button>
+            </div>
+
+            <div class="mb-3" id="onbuildCommands">
+                <label class="form-label">ONBUILD</label>
+                <button id="addOnbuildbtn" type="button" class="btn btn-secondary btn-sm">Aggiungi</button>
+            </div>
+
+            <div class="mb-3" id="stopsignalCommands">
+                <label class="form-label">STOPSIGNAL</label>
+                <button id="addStopsignalbtn" type="button" class="btn btn-secondary btn-sm">Aggiungi</button>
+            </div>
+
+            <button type="submit" class="btn btn-primary">Genera il Dockerfile!</button>
+        </div>
+
+    </form>
+</div>

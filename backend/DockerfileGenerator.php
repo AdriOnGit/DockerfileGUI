@@ -1,47 +1,33 @@
 <?php
 // Scrive i comandi con piu' istanze sul file
-function addCommand($commandType, $file) {
-    if (isset($_POST[$commandType])) {
-        $commands = $_POST[$commandType];
-
-        foreach ($commands as $command) {
-            $txt = strtoupper($commandType) . " " . $command . "\n"; 
-            fwrite($file, $txt);
-        }
-        $txt = "\n";
+function addCommand($commandType, $commands, $file)
+{
+    foreach ($commands as $command) {
+        $txt = strtoupper($commandType) . " " . $command . "\n";
         fwrite($file, $txt);
     }
+    $txt = "\n";
+    fwrite($file, $txt);
 }
+
+// Test per vedere input da POST
+//var_dump($_POST);
 
 // Creazione file
 $dockerfile = "../html/Dockerfiles/Dockerfile";
 $file = fopen($dockerfile, "w");
 
-//Inserimento FROM
-$from = $_POST["from"];
-$txt = "FROM " . $from . "\n\n";
-fwrite($file, $txt);
-
-// Inserimento LABEL
-addCommand('label', $file);
-
-// Inserimento ARG
-addCommand('arg', $file);
-
-// Inserimento ENV
-addCommand('env', $file);
-
-// Inserimento RUN
-addCommand('run', $file);
-
-// Inserimento COPY
-addCommand('copy', $file);
-
-// Inserimento ADD
-addCommand('add', $file);
-
-// Inserimento EXPOSE
-addCommand('expose', $file);
+foreach ($_POST as $key => $commands) {
+    // Non stampare ***Commands
+    if (strpos($key, 'Commands') !== false) {
+        continue;
+    }
+    
+    // Aggiungi il comando solo se esistono input per quel comando
+    if (is_array($commands)) {
+        addCommand($key, $commands, $file);
+    }
+}
 
 fclose($file);
 
@@ -52,3 +38,4 @@ header('Content-Length: ' . filesize("$dockerfile"));
 
 // Invia il contenuto del file al browser
 readfile("$dockerfile");
+?>
