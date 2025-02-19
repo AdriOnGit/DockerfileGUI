@@ -20,7 +20,7 @@ export function addInputs(type, placeholder) {
     }
 
     let newInput = $('<div class="input-group mt-2">')
-        .append(`<input type="text" class="form-control" name="${name}[]" placeholder="${placeholder}">`)
+        .append(`<input type="text" class="form-control" name="${name}[]" placeholder='${placeholder}' required>`)
         .append('<button type="button" class="btn btn-danger remove-btn">Rimuovi</button>');
     $(containerId).append(newInput);
     $(`input[name='${name}[]']`).on("input", updatePreview);
@@ -47,6 +47,7 @@ export function updateFormOrder() {
     });
 }
 
+// Aggiorna la preview per Dockerfile
 export function updatePreview() {
     console.log($("#dockerfilePreview"));
     let dockerfile = "FROM " + $("#from").val() + "\n\n";

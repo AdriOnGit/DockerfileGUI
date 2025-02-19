@@ -9,14 +9,14 @@ if (localStorage.getItem("theme") === "dark") {
 
 // Quando l'utente clicca, cambia tema
 button.addEventListener("click", () => {
-    body.classList.toggle("dark-mode");
+  body.classList.toggle("dark-mode");
 
-    // Salva la scelta nel localStorage
-    if (body.classList.contains("dark-mode")) {
+  // Salva la scelta nel localStorage
+  if (body.classList.contains("dark-mode")) {
     localStorage.setItem("theme", "dark");
     button.textContent = "☀️";
-    } else {
+  } else {
     localStorage.setItem("theme", "light");
     button.textContent = "🌙";
-    }
+  }
 });

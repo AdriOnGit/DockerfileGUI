@@ -4,7 +4,7 @@
 </div>
 
 <div class="card p-4 form-box">
-    <form id="dockerfileForm" method="POST" action="http://localhost:8080/DockerfileGenerator.php">
+    <form id="dockerfileForm">
 
         <div class="form-section mb-3" id="fromCommands">
             <label for="from" class="sub-text">FROM</label>
@@ -16,85 +16,174 @@
 
             <div class="form-section mb-3" id="labelCommands">
                 <label class="sub-text">LABEL</label>
-                <button id="addLabelbtn" type="button" class="form-button btn btn-secondary btn-sm">Aggiungi</button>
+                <button id="addLabelbtn" type="button" class="btn-custom form-button btn btn-secondary btn-sm ">Aggiungi</button>
+                <i class="bi bi-info-circle text-primary mb-1"
+                    style="float: right; margin-top: -3px; margin-right: 10px; font-size: 1.2rem;"
+                    data-bs-toggle="tooltip" data-bs-placement="top" data-bs-custom-class="custom-tooltip"
+                    data-bs-title="Test tooltip">
+                </i>
             </div>
 
             <div class="form-section mb-3" id="argCommands">
                 <label class="sub-text">ARG</label>
-                <button id="addArgbtn" type="button" class="btn btn-secondary btn-sm">Aggiungi</button>
+                <button id="addArgbtn" type="button" class="btn-custom btn btn-secondary btn-sm">Aggiungi</button>
+                <i class="bi bi-info-circle text-primary mb-1"
+                    style="float: right; margin-top: -3px; margin-right: 10px; font-size: 1.2rem;"
+                    data-bs-toggle="tooltip" data-bs-placement="top" data-bs-custom-class="custom-tooltip"
+                    data-bs-title="Test tooltip">
+                </i>
             </div>
 
             <div class="form-section mb-3" id="envCommands">
                 <label class="sub-text">ENV</label>
-                <button id="addEnvbtn" type="button" class="btn btn-secondary btn-sm">Aggiungi</button>
+                <button id="addEnvbtn" type="button" class="btn-custom btn btn-secondary btn-sm">Aggiungi</button>
+                <i class="bi bi-info-circle text-primary mb-1"
+                    style="float: right; margin-top: -3px; margin-right: 10px; font-size: 1.2rem;"
+                    data-bs-toggle="tooltip" data-bs-placement="top" data-bs-custom-class="custom-tooltip"
+                    data-bs-title="Test tooltip">
+                </i>
             </div>
 
             <div class="form-section mb-3" id="healthcheckCommands">
                 <label class="sub-text">HEALTHCHECK</label>
-                <button id="addHealthcheckbtn" type="button" class="btn btn-secondary btn-sm">Aggiungi</button>
+                <button id="addHealthcheckbtn" type="button" class="btn-custom btn btn-secondary btn-sm">Aggiungi</button>
+                <i class="bi bi-info-circle text-primary mb-1"
+                    style="float: right; margin-top: -3px; margin-right: 10px; font-size: 1.2rem;"
+                    data-bs-toggle="tooltip" data-bs-placement="top" data-bs-custom-class="custom-tooltip"
+                    data-bs-title="Test tooltip">
+                </i>
             </div>
 
             <div class="form-section mb-3" id="runCommands">
                 <label class="sub-text">RUN</label>
-                <button id="addRunbtn" type="button" class="btn btn-secondary btn-sm">Aggiungi</button>
+                <button id="addRunbtn" type="button" class="btn-custom btn btn-secondary btn-sm">Aggiungi</button>
+                <i class="bi bi-info-circle text-primary mb-1"
+                    style="float: right; margin-top: -3px; margin-right: 10px; font-size: 1.2rem;"
+                    data-bs-toggle="tooltip" data-bs-placement="top" data-bs-custom-class="custom-tooltip"
+                    data-bs-title="Test tooltip">
+                </i>
             </div>
 
             <div class="form-section mb-3" id="shellCommands">
                 <label class="sub-text">SHELL</label>
-                <button id="addShellbtn" type="button" class="btn btn-secondary btn-sm">Aggiungi</button>
+                <button id="addShellbtn" type="button" class="btn-custom btn btn-secondary btn-sm">Aggiungi</button>
+                <i class="bi bi-info-circle text-primary mb-1"
+                    style="float: right; margin-top: -3px; margin-right: 10px; font-size: 1.2rem;"
+                    data-bs-toggle="tooltip" data-bs-placement="top" data-bs-custom-class="custom-tooltip"
+                    data-bs-title="Test tooltip">
+                </i>
             </div>
 
             <div class="form-section mb-3" id="copyCommands">
                 <label class="sub-text">COPY</label>
-                <button id="addCopybtn" type="button" class="btn btn-secondary btn-sm">Aggiungi</button>
+                <button id="addCopybtn" type="button" class="btn-custom btn btn-secondary btn-sm">Aggiungi</button>
+                <i class="bi bi-info-circle text-primary mb-1"
+                    style="float: right; margin-top: -3px; margin-right: 10px; font-size: 1.2rem;"
+                    data-bs-toggle="tooltip" data-bs-placement="top" data-bs-custom-class="custom-tooltip"
+                    data-bs-title="Test tooltip">
+                </i>
             </div>
 
             <div class="form-section mb-3" id="addCommands">
                 <label class="sub-text">ADD</label>
-                <button id="addAddbtn" type="button" class="btn btn-secondary btn-sm">Aggiungi</button>
+                <button id="addAddbtn" type="button" class="btn-custom btn btn-secondary btn-sm">Aggiungi</button>
+                <i class="bi bi-info-circle text-primary mb-1"
+                    style="float: right; margin-top: -3px; margin-right: 10px; font-size: 1.2rem;"
+                    data-bs-toggle="tooltip" data-bs-placement="top" data-bs-custom-class="custom-tooltip"
+                    data-bs-title="Test tooltip">
+                </i>
             </div>
 
             <div class="form-section mb-3" id="workdirCommands">
                 <label class="sub-text">WORKDIR</label>
-                <button id="addWorkdirbtn" type="button" class="btn btn-secondary btn-sm">Aggiungi</button>
+                <button id="addWorkdirbtn" type="button" class="btn-custom btn btn-secondary btn-sm">Aggiungi</button>
+                <i class="bi bi-info-circle text-primary mb-1"
+                    style="float: right; margin-top: -3px; margin-right: 10px; font-size: 1.2rem;"
+                    data-bs-toggle="tooltip" data-bs-placement="top" data-bs-custom-class="custom-tooltip"
+                    data-bs-title="Test tooltip">
+                </i>
             </div>
 
             <div class="form-section mb-3" id="userCommands">
                 <label class="sub-text">USER</label>
-                <button id="addUserbtn" type="button" class="btn btn-secondary btn-sm">Aggiungi</button>
+                <button id="addUserbtn" type="button" class="btn-custom btn btn-secondary btn-sm">Aggiungi</button>
+                <i class="bi bi-info-circle text-primary mb-1"
+                    style="float: right; margin-top: -3px; margin-right: 10px; font-size: 1.2rem;"
+                    data-bs-toggle="tooltip" data-bs-placement="top" data-bs-custom-class="custom-tooltip"
+                    data-bs-title="Test tooltip">
+                </i>
             </div>
 
             <div class="form-section mb-3" id="exposeCommands">
                 <label class="sub-text">EXPOSE</label>
-                <button id="addExposebtn" type="button" class="btn btn-secondary btn-sm">Aggiungi</button>
+                <button id="addExposebtn" type="button" class="btn-custom btn btn-secondary btn-sm">Aggiungi</button>
+                <i class="bi bi-info-circle text-primary mb-1"
+                    style="float: right; margin-top: -3px; margin-right: 10px; font-size: 1.2rem;"
+                    data-bs-toggle="tooltip" data-bs-placement="top" data-bs-custom-class="custom-tooltip"
+                    data-bs-title="Test tooltip">
+                </i>
             </div>
 
             <div class="form-section mb-3" id="volumeCommands">
                 <label class="sub-text">VOLUME</label>
-                <button id="addVolumebtn" type="button" class="btn btn-secondary btn-sm">Aggiungi</button>
+                <button id="addVolumebtn" type="button" class="btn-custom btn btn-secondary btn-sm">Aggiungi</button>
+                <i class="bi bi-info-circle text-primary mb-1"
+                    style="float: right; margin-top: -3px; margin-right: 10px; font-size: 1.2rem;"
+                    data-bs-toggle="tooltip" data-bs-placement="top" data-bs-custom-class="custom-tooltip"
+                    data-bs-title="Test tooltip">
+                </i>
             </div>
 
             <div class="form-section mb-3" id="entrypointCommands">
                 <label class="sub-text">ENTRYPOINT</label>
-                <button id="addEntrypointbtn" type="button" class="btn btn-secondary btn-sm">Aggiungi</button>
+                <button id="addEntrypointbtn" type="button" class="btn-custom btn btn-secondary btn-sm">Aggiungi</button>
+                <i class="bi bi-info-circle text-primary mb-1"
+                    style="float: right; margin-top: -3px; margin-right: 10px; font-size: 1.2rem;"
+                    data-bs-toggle="tooltip" data-bs-placement="top" data-bs-custom-class="custom-tooltip"
+                    data-bs-title="Test tooltip">
+                </i>
             </div>
 
             <div class="form-section mb-3" id="cmdCommands">
                 <label class="sub-text">CMD</label>
-                <button id="addCmdbtn" type="button" class="btn btn-secondary btn-sm">Aggiungi</button>
+                <button id="addCmdbtn" type="button" class="btn-custom btn btn-secondary btn-sm">Aggiungi</button>
+                <i class="bi bi-info-circle text-primary mb-1"
+                    style="float: right; margin-top: -3px; margin-right: 10px; font-size: 1.2rem;"
+                    data-bs-toggle="tooltip" data-bs-placement="top" data-bs-custom-class="custom-tooltip"
+                    data-bs-title="Test tooltip">
+                </i>
             </div>
 
             <div class="form-section mb-3" id="onbuildCommands">
                 <label class="sub-text">ONBUILD</label>
-                <button id="addOnbuildbtn" type="button" class="btn btn-secondary btn-sm">Aggiungi</button>
+                <button id="addOnbuildbtn" type="button" class="btn-custom btn btn-secondary btn-sm">Aggiungi</button>
+                <i class="bi bi-info-circle text-primary mb-1"
+                    style="float: right; margin-top: -3px; margin-right: 10px; font-size: 1.2rem;"
+                    data-bs-toggle="tooltip" data-bs-placement="top" data-bs-custom-class="custom-tooltip"
+                    data-bs-title="Test tooltip">
+                </i>
             </div>
 
             <div class="form-section mb-3" id="stopsignalCommands">
                 <label class="sub-text">STOPSIGNAL</label>
-                <button id="addStopsignalbtn" type="button" class="btn btn-secondary btn-sm">Aggiungi</button>
+                <button id="addStopsignalbtn" type="button" class="btn-custom btn btn-secondary btn-sm">Aggiungi</button>
+                <i class="bi bi-info-circle text-primary mb-1"
+                    style="float: right; margin-top: -3px; margin-right: 10px; font-size: 1.2rem;"
+                    data-bs-toggle="tooltip" data-bs-placement="top" data-bs-custom-class="custom-tooltip"
+                    data-bs-title="Test tooltip">
+                </i>
             </div>
 
         </div>
+
+        <!-- TODO: Da aggiustare grafica -->
+        <div class="form-check">
+            <input class="form-check-input" type="checkbox" value="" id="composeCheckbox">
+            <label class="sub-text form-check-label mb-3">
+                Genera anche il docker-compose
+            </label>
+        </div>
+
         <button type="submit" class="btn btn-primary">Genera il Dockerfile!</button>
     </form>
 </div>

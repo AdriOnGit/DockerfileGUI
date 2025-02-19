@@ -1,22 +1,24 @@
 <?php
-// Scrive i comandi con piu' istanze sul file
-function addCommand($commandType, $commands, $file)
-{
-    foreach ($commands as $command) {
-        $txt = strtoupper($commandType) . " " . $command . "\n";
-        fwrite($file, $txt);
-    }
-    $txt = "\n";
-    fwrite($file, $txt);
-}
+header("Access-Control-Allow-Origin: *");
 
-// Test per vedere input da POST
-//var_dump($_POST);
+// Scrive i comandi con piu' istanze sul file
+function addCommand($commandType, $commands)
+{
+    $commandsTxt = ''; 
+    foreach ($commands as $command) {
+        $commandsTxt .= strtoupper($commandType) . " " . $command . "\n";
+    }
+    $commandsTxt .= "\n";
+    return $commandsTxt;
+}
 
 // Creazione file
 $dockerfile = "../html/Dockerfiles/Dockerfile";
-$file = fopen($dockerfile, "w");
 
+// Initialize a variable to store the content
+$txt = '';
+
+// Process the POST data and accumulate the commands
 foreach ($_POST as $key => $commands) {
     // Non stampare ***Commands
     if (strpos($key, 'Commands') !== false) {
@@ -25,10 +27,13 @@ foreach ($_POST as $key => $commands) {
     
     // Aggiungi il comando solo se esistono input per quel comando
     if (is_array($commands)) {
-        addCommand($key, $commands, $file);
+        $txt .= addCommand($key, $commands); 
     }
 }
 
+// Create the file and write everything at once
+$file = fopen($dockerfile, "w");
+fwrite($file, $txt); // Write all the accumulated content to the file
 fclose($file);
 
 // Inizia il download

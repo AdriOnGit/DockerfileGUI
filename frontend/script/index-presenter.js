@@ -3,10 +3,6 @@ function appendContent(tag, filename) {
         url: filename,
         success: function (data) {
             $(tag).append(data);
-            
-            // Inizializza tooltip
-            const tooltipTriggerList = document.querySelectorAll('[data-bs-toggle="tooltip"]');
-            const tooltipList = [...tooltipTriggerList].map(tooltipTriggerEl => new bootstrap.Tooltip(tooltipTriggerEl));
         },
         error: function () {
             console.log("Errore nel caricamento del file: " + filename);
@@ -16,8 +12,8 @@ function appendContent(tag, filename) {
 
 $(document).ready(function () {
     appendContent("#navbar-container", "../assets/html/navbar-view.html"); // Carica la navbar
-    appendContent("#form-container", "../assets/html/dockerfile-form-view.html"); // Carica il form
-    appendContent("#preview-container", "../assets/html/dockerfile-preview-view.html"); // Carica la preview
+    appendContent("#cards-container", "../assets/html/home-cards.html"); // Carica le tre cards
+    appendContent("#descriptions-container", "../assets/html/home-descriptions.html"); // Carica le due descrizioni
     appendContent("#footer-container", "../assets/html/footer-view.html"); // Carica il footer
 });
 

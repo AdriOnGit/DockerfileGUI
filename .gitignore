@@ -1,4 +1,1 @@
-frontend/Dockerfiles
-frontend/script/submitHandler.js
-frontend/assets/css/modal-style.css
-backend
+frontend/Dockerfiles/*

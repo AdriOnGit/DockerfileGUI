@@ -90,13 +90,7 @@ body.dark-mode .text {
     color: #8596A5;
 }
 
-.footer {
-    background-color: #f8f9fa;
-    padding: 10px 0;
-    text-align: center;
-}
-
-body.dark-mode .footer {
-    background-color: #00084D;
-    color: #ffffff;
+.btn-custom {
+    float: right;
+    margin-top: -3px;
 }
