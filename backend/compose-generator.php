@@ -1,12 +1,14 @@
 <?php
-header("Access-Control-Allow-Origin: *");
+//header("Access-Control-Allow-Origin: *");
 
 // Creazione file
 $compose = "../html/Dockerfiles/docker-compose.yml";
 $file = fopen($compose, "w");
 
+$txt = "#Generato con Autodocker© 2025!\n\n";
+
 // Inizio contenuto
-$txt = <<<EOD
+$txt .= <<<EOD
 version: '3.8'
 services:
   app:
@@ -91,4 +93,7 @@ header('Content-Length: ' . filesize("$compose"));
 
 // Invia il contenuto del file al browser
 readfile("$compose");
+
+// Cancella il file dopo aver mandato il download
+unlink($compose);
 ?>

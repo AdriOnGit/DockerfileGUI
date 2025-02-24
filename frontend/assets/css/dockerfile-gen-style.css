@@ -16,7 +16,6 @@ body.dark-mode {
     background-color: inherit;
 }
 
-.preview-box,
 .form-box {
     border-radius: 10px;
     background-color: #f8f9fa;
@@ -26,8 +25,30 @@ body.dark-mode {
     border: 2px solid #0d6efd;
 }
 
+.preview-box {
+    top: 0;
+    border-radius: 10px;
+    background-color: #f8f9fa;
+    padding: 20px;
+    height: 47%;
+    overflow-y: auto;
+    border: 2px solid #0d6efd;
+}
+
+.dockercompose-box {
+    bottom: 0;
+    border-radius: 10px;
+    background-color: #f8f9fa;
+    padding: 20px;
+    height: 47%;
+    overflow-y: auto;
+    border: 2px solid #0d6efd;
+    display: none;
+}
+
 body.dark-mode .preview-box,
-body.dark-mode .form-box {
+body.dark-mode .form-box,
+body.dark-mode .dockercompose-box {
     background-color: #151F2E;
     border: 2px solid #0d6efd;
 }
@@ -59,11 +80,6 @@ body.dark-mode .sub-text {
     color: #8596A5;
 }
 
-.title-text {
-    font-weight: bold;
-    color: #0d6efd;
-}
-
 .dockerfile {
     background-color: #FAFAFA;
     padding: 10px;
@@ -93,4 +109,28 @@ body.dark-mode .text {
 .btn-custom {
     float: right;
     margin-top: -3px;
+}
+
+.custom-tooltip {
+  --bs-tooltip-bg: #00084D;
+  --bs-tooltip-color: #FAFAFA;
+--bs-tooltip-opacity: 1;
+}
+
+.dockercompose-title {
+    display: none;
+}
+
+.custom-tooltip {
+    --bs-tooltip-bg: #00084D;
+    --bs-tooltip-color: #FAFAFA;
+    --bs-tooltip-opacity: 1;
+    font-family:'Consolas', monospace;
+}
+
+.bi {
+    float: right; 
+    margin-top: -3px; 
+    margin-right: 10px; 
+    font-size: 1.2rem;
 }

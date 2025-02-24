@@ -4,181 +4,176 @@
 </div>
 
 <div class="card p-4 form-box">
-    <form id="dockerfileForm">
+    <!-- <button id="nodejsBtn" type="button" class="btn-custom btn btn-secondary btn-sm">Nodejs</button> -->
 
+    <form id="dockerfileForm">
+        <!-- <br> -->
+
+        <!-- Campo obbligatorio -->
         <div class="form-section mb-3" id="fromCommands">
+            <!-- Nome comando -->
             <label for="from" class="sub-text">FROM</label>
-            <input type="text" class="form-control" id="from" name="from[]" placeholder="es: ubuntu" required>
+            <!-- Icona per informazioni aggiuntive tramite tooltip Bootstrap -->
+            <i class="bi bi-info-circle text-primary mb-1" data-bs-toggle="tooltip" data-bs-placement="top"
+                data-bs-custom-class="custom-tooltip"
+                data-bs-title="Inizializza una nuova fase di build e imposta l'immagine di base per le istruzioni successive.">
+            </i>
+            <!-- Campo da compilare con esempio di comando -->
+            <input type="text" class="form-control" id="from" name="from[]" placeholder="es: ubuntu" value="" required>
         </div>
 
-        <!-- Comandi spostabili -->
+        <!-- Comandi opzionali spostabili -->
         <div class="sortable-container">
-
+            <!-- Nome comando -->
             <div class="form-section mb-3" id="labelCommands">
                 <label class="sub-text">LABEL</label>
-                <button id="addLabelbtn" type="button" class="btn-custom form-button btn btn-secondary btn-sm ">Aggiungi</button>
-                <i class="bi bi-info-circle text-primary mb-1"
-                    style="float: right; margin-top: -3px; margin-right: 10px; font-size: 1.2rem;"
-                    data-bs-toggle="tooltip" data-bs-placement="top" data-bs-custom-class="custom-tooltip"
-                    data-bs-title="Test tooltip">
+                <!-- Bottone per aggiungere un campo da compilare del comando -->
+                <button id="addLabelbtn" type="button"
+                    class="btn-custom form-button btn btn-secondary btn-sm ">Aggiungi</button>
+                <i class="bi bi-info-circle text-primary mb-1" data-bs-toggle="tooltip" data-bs-placement="top"
+                    data-bs-custom-class="custom-tooltip" data-bs-title="Aggiunge metadati a un'immagine.">
                 </i>
             </div>
 
             <div class="form-section mb-3" id="argCommands">
                 <label class="sub-text">ARG</label>
                 <button id="addArgbtn" type="button" class="btn-custom btn btn-secondary btn-sm">Aggiungi</button>
-                <i class="bi bi-info-circle text-primary mb-1"
-                    style="float: right; margin-top: -3px; margin-right: 10px; font-size: 1.2rem;"
-                    data-bs-toggle="tooltip" data-bs-placement="top" data-bs-custom-class="custom-tooltip"
-                    data-bs-title="Test tooltip">
+                <i class="bi bi-info-circle text-primary mb-1" data-bs-toggle="tooltip" data-bs-placement="top"
+                    data-bs-custom-class="custom-tooltip"
+                    data-bs-title="Definisce una variabile che l'utente può passare al builder in fase di build dell'immagine.">
                 </i>
             </div>
 
             <div class="form-section mb-3" id="envCommands">
                 <label class="sub-text">ENV</label>
                 <button id="addEnvbtn" type="button" class="btn-custom btn btn-secondary btn-sm">Aggiungi</button>
-                <i class="bi bi-info-circle text-primary mb-1"
-                    style="float: right; margin-top: -3px; margin-right: 10px; font-size: 1.2rem;"
-                    data-bs-toggle="tooltip" data-bs-placement="top" data-bs-custom-class="custom-tooltip"
-                    data-bs-title="Test tooltip">
+                <i class="bi bi-info-circle text-primary mb-1" data-bs-toggle="tooltip" data-bs-placement="top"
+                    data-bs-custom-class="custom-tooltip" data-bs-title="Imposta le variabili di ambiente.">
                 </i>
             </div>
 
             <div class="form-section mb-3" id="healthcheckCommands">
                 <label class="sub-text">HEALTHCHECK</label>
-                <button id="addHealthcheckbtn" type="button" class="btn-custom btn btn-secondary btn-sm">Aggiungi</button>
-                <i class="bi bi-info-circle text-primary mb-1"
-                    style="float: right; margin-top: -3px; margin-right: 10px; font-size: 1.2rem;"
-                    data-bs-toggle="tooltip" data-bs-placement="top" data-bs-custom-class="custom-tooltip"
-                    data-bs-title="Test tooltip">
+                <button id="addHealthcheckbtn" type="button"
+                    class="btn-custom btn btn-secondary btn-sm">Aggiungi</button>
+                <i class="bi bi-info-circle text-primary mb-1" data-bs-toggle="tooltip" data-bs-placement="top"
+                    data-bs-custom-class="custom-tooltip"
+                    data-bs-title="Indica a Docker come testare un container per verificare il suo funzionamento.">
                 </i>
             </div>
 
             <div class="form-section mb-3" id="runCommands">
                 <label class="sub-text">RUN</label>
                 <button id="addRunbtn" type="button" class="btn-custom btn btn-secondary btn-sm">Aggiungi</button>
-                <i class="bi bi-info-circle text-primary mb-1"
-                    style="float: right; margin-top: -3px; margin-right: 10px; font-size: 1.2rem;"
-                    data-bs-toggle="tooltip" data-bs-placement="top" data-bs-custom-class="custom-tooltip"
-                    data-bs-title="Test tooltip">
+                <i class="bi bi-info-circle text-primary mb-1" data-bs-toggle="tooltip" data-bs-placement="top"
+                    data-bs-custom-class="custom-tooltip"
+                    data-bs-title="Esegue qualsiasi comando creando un nuovo layer, il quale viene utilizzato nell'istruzione successiva.">
                 </i>
             </div>
 
             <div class="form-section mb-3" id="shellCommands">
                 <label class="sub-text">SHELL</label>
                 <button id="addShellbtn" type="button" class="btn-custom btn btn-secondary btn-sm">Aggiungi</button>
-                <i class="bi bi-info-circle text-primary mb-1"
-                    style="float: right; margin-top: -3px; margin-right: 10px; font-size: 1.2rem;"
-                    data-bs-toggle="tooltip" data-bs-placement="top" data-bs-custom-class="custom-tooltip"
-                    data-bs-title="Test tooltip">
+                <i class="bi bi-info-circle text-primary mb-1" data-bs-toggle="tooltip" data-bs-placement="top"
+                    data-bs-custom-class="custom-tooltip" data-bs-title="Imposta la shell predefinita dell'immagine.">
                 </i>
             </div>
 
             <div class="form-section mb-3" id="copyCommands">
                 <label class="sub-text">COPY</label>
                 <button id="addCopybtn" type="button" class="btn-custom btn btn-secondary btn-sm">Aggiungi</button>
-                <i class="bi bi-info-circle text-primary mb-1"
-                    style="float: right; margin-top: -3px; margin-right: 10px; font-size: 1.2rem;"
-                    data-bs-toggle="tooltip" data-bs-placement="top" data-bs-custom-class="custom-tooltip"
-                    data-bs-title="Test tooltip">
+                <i class="bi bi-info-circle text-primary mb-1" data-bs-toggle="tooltip" data-bs-placement="top"
+                    data-bs-custom-class="custom-tooltip"
+                    data-bs-title="Copia file e directory dall'host al container.">
                 </i>
             </div>
 
             <div class="form-section mb-3" id="addCommands">
                 <label class="sub-text">ADD</label>
                 <button id="addAddbtn" type="button" class="btn-custom btn btn-secondary btn-sm">Aggiungi</button>
-                <i class="bi bi-info-circle text-primary mb-1"
-                    style="float: right; margin-top: -3px; margin-right: 10px; font-size: 1.2rem;"
-                    data-bs-toggle="tooltip" data-bs-placement="top" data-bs-custom-class="custom-tooltip"
-                    data-bs-title="Test tooltip">
+                <i class="bi bi-info-circle text-primary mb-1" data-bs-toggle="tooltip" data-bs-placement="top"
+                    data-bs-custom-class="custom-tooltip"
+                    data-bs-title="Copia file e directory dall'host al container. Può anche effettuare download da URL.">
                 </i>
             </div>
 
             <div class="form-section mb-3" id="workdirCommands">
                 <label class="sub-text">WORKDIR</label>
                 <button id="addWorkdirbtn" type="button" class="btn-custom btn btn-secondary btn-sm">Aggiungi</button>
-                <i class="bi bi-info-circle text-primary mb-1"
-                    style="float: right; margin-top: -3px; margin-right: 10px; font-size: 1.2rem;"
-                    data-bs-toggle="tooltip" data-bs-placement="top" data-bs-custom-class="custom-tooltip"
-                    data-bs-title="Test tooltip">
+                <i class="bi bi-info-circle text-primary mb-1" data-bs-toggle="tooltip" data-bs-placement="top"
+                    data-bs-custom-class="custom-tooltip"
+                    data-bs-title="Imposta la directory di lavoro per istruzioni successive.">
                 </i>
             </div>
 
             <div class="form-section mb-3" id="userCommands">
                 <label class="sub-text">USER</label>
                 <button id="addUserbtn" type="button" class="btn-custom btn btn-secondary btn-sm">Aggiungi</button>
-                <i class="bi bi-info-circle text-primary mb-1"
-                    style="float: right; margin-top: -3px; margin-right: 10px; font-size: 1.2rem;"
-                    data-bs-toggle="tooltip" data-bs-placement="top" data-bs-custom-class="custom-tooltip"
-                    data-bs-title="Test tooltip">
+                <i class="bi bi-info-circle text-primary mb-1" data-bs-toggle="tooltip" data-bs-placement="top"
+                    data-bs-custom-class="custom-tooltip" data-bs-title="Specifica utente e, opzionalmente, il gruppo.">
                 </i>
             </div>
 
             <div class="form-section mb-3" id="exposeCommands">
                 <label class="sub-text">EXPOSE</label>
                 <button id="addExposebtn" type="button" class="btn-custom btn btn-secondary btn-sm">Aggiungi</button>
-                <i class="bi bi-info-circle text-primary mb-1"
-                    style="float: right; margin-top: -3px; margin-right: 10px; font-size: 1.2rem;"
-                    data-bs-toggle="tooltip" data-bs-placement="top" data-bs-custom-class="custom-tooltip"
-                    data-bs-title="Test tooltip">
+                <i class="bi bi-info-circle text-primary mb-1" data-bs-toggle="tooltip" data-bs-placement="top"
+                    data-bs-custom-class="custom-tooltip"
+                    data-bs-title="Indica le porte su cui il container è in ascolto.">
                 </i>
             </div>
 
             <div class="form-section mb-3" id="volumeCommands">
                 <label class="sub-text">VOLUME</label>
                 <button id="addVolumebtn" type="button" class="btn-custom btn btn-secondary btn-sm">Aggiungi</button>
-                <i class="bi bi-info-circle text-primary mb-1"
-                    style="float: right; margin-top: -3px; margin-right: 10px; font-size: 1.2rem;"
-                    data-bs-toggle="tooltip" data-bs-placement="top" data-bs-custom-class="custom-tooltip"
-                    data-bs-title="Test tooltip">
+                <i class="bi bi-info-circle text-primary mb-1" data-bs-toggle="tooltip" data-bs-placement="top"
+                    data-bs-custom-class="custom-tooltip"
+                    data-bs-title="Crea una directory nel container e la monta con directory esterni present sull'host o su altri container.">
                 </i>
             </div>
 
             <div class="form-section mb-3" id="entrypointCommands">
                 <label class="sub-text">ENTRYPOINT</label>
-                <button id="addEntrypointbtn" type="button" class="btn-custom btn btn-secondary btn-sm">Aggiungi</button>
-                <i class="bi bi-info-circle text-primary mb-1"
-                    style="float: right; margin-top: -3px; margin-right: 10px; font-size: 1.2rem;"
-                    data-bs-toggle="tooltip" data-bs-placement="top" data-bs-custom-class="custom-tooltip"
-                    data-bs-title="Test tooltip">
+                <button id="addEntrypointbtn" type="button"
+                    class="btn-custom btn btn-secondary btn-sm">Aggiungi</button>
+                <i class="bi bi-info-circle text-primary mb-1" data-bs-toggle="tooltip" data-bs-placement="top"
+                    data-bs-custom-class="custom-tooltip"
+                    data-bs-title="Definisce un comando che verrà sempre eseguito quando viene inizializzato il container">
                 </i>
             </div>
 
             <div class="form-section mb-3" id="cmdCommands">
                 <label class="sub-text">CMD</label>
                 <button id="addCmdbtn" type="button" class="btn-custom btn btn-secondary btn-sm">Aggiungi</button>
-                <i class="bi bi-info-circle text-primary mb-1"
-                    style="float: right; margin-top: -3px; margin-right: 10px; font-size: 1.2rem;"
-                    data-bs-toggle="tooltip" data-bs-placement="top" data-bs-custom-class="custom-tooltip"
-                    data-bs-title="Test tooltip">
+                <i class="bi bi-info-circle text-primary mb-1" data-bs-toggle="tooltip" data-bs-placement="top"
+                    data-bs-custom-class="custom-tooltip"
+                    data-bs-title="Imposta il comando da eseguire quando viene costruito un container da un'immagine.">
                 </i>
             </div>
 
             <div class="form-section mb-3" id="onbuildCommands">
                 <label class="sub-text">ONBUILD</label>
                 <button id="addOnbuildbtn" type="button" class="btn-custom btn btn-secondary btn-sm">Aggiungi</button>
-                <i class="bi bi-info-circle text-primary mb-1"
-                    style="float: right; margin-top: -3px; margin-right: 10px; font-size: 1.2rem;"
-                    data-bs-toggle="tooltip" data-bs-placement="top" data-bs-custom-class="custom-tooltip"
-                    data-bs-title="Test tooltip">
+                <i class="bi bi-info-circle text-primary mb-1" data-bs-toggle="tooltip" data-bs-placement="top"
+                    data-bs-custom-class="custom-tooltip"
+                    data-bs-title="Aggiunge all'immagine un'istruzione 'trigger' che verrà eseguito quando l'immagine verrà utilizzata come base per un'altra build.">
                 </i>
             </div>
 
             <div class="form-section mb-3" id="stopsignalCommands">
                 <label class="sub-text">STOPSIGNAL</label>
-                <button id="addStopsignalbtn" type="button" class="btn-custom btn btn-secondary btn-sm">Aggiungi</button>
-                <i class="bi bi-info-circle text-primary mb-1"
-                    style="float: right; margin-top: -3px; margin-right: 10px; font-size: 1.2rem;"
-                    data-bs-toggle="tooltip" data-bs-placement="top" data-bs-custom-class="custom-tooltip"
-                    data-bs-title="Test tooltip">
+                <button id="addStopsignalbtn" type="button"
+                    class="btn-custom btn btn-secondary btn-sm">Aggiungi</button>
+                <i class="bi bi-info-circle text-primary mb-1" data-bs-toggle="tooltip" data-bs-placement="top"
+                    data-bs-custom-class="custom-tooltip"
+                    data-bs-title="Definisce la chiamata di sistema da utilizzare per arrestare il container.">
                 </i>
             </div>
 
         </div>
 
-        <!-- TODO: Da aggiustare grafica -->
         <div class="form-check">
-            <input class="form-check-input" type="checkbox" value="" id="composeCheckbox">
+            <input class="form-check-input" type="checkbox" value="" id="composeCheckbox" onchange="toggleDiv()">
             <label class="sub-text form-check-label mb-3">
                 Genera anche il docker-compose
             </label>

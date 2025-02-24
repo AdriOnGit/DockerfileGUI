@@ -1,14 +1,19 @@
-import { updatePreview, addInputs } from './inputHandler.js';
+import { updateDockerfilePreview, addInputs, updateComposePreview } from './inputHandler.js';
+
+// Cambiare quando non si e' piu' in localhost
+const my_server = 'localhost';
+
+const main_url = `http://${my_server}:8080`;
 
 $(document).ready(function () {
     // Aggiorna FROM
     $(document).on("input", "#from", function () {
-        updatePreview();
+        updateDockerfilePreview();
     });
 
     // Aggiungi LABEL
     $(document).on('click', '#addLabelbtn', function () {
-        addInputs("label", "es: maintainer=pippo.caio@email.com")
+        addInputs("label", "es: maintainer=nome.cognome@email.com")
     });
 
     // Aggiungi ARG
@@ -89,6 +94,25 @@ $(document).ready(function () {
     // Tasto per rimuovere input
     $(document).on('click', '.remove-btn', function () {
         $(this).parent().remove();
-        updatePreview();
+        updateDockerfilePreview();
+        updateComposePreview();
     });
+
+    // $(document).on('click', '#nodejsBtn', function () {
+    //     console.log("Ho cliccato nodejs");
+    //     // Prendi i dati del file
+    //     $.ajax({
+    //         url: `${main_url}/dockerfileTemplates/nodejs.json`,
+    //         type: 'GET', 
+    //         dataType: 'json',
+    //         success: function(data) {              
+    //             // Inserisci i value
+    //             $('#from').val(data.from);
+    //         },
+    //         error: function(xhr, status, error) {
+    //             console.error('Error fetching JSON:', error);
+    //         }
+    //     });
+
+    // });
 });

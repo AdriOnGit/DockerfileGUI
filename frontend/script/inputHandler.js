@@ -1,5 +1,5 @@
 // Aggiungi piu' istanze del comando
-export function addInputs(type, placeholder) {
+export function addInputs(type, placeholder, defaultValue = '') {
     let containerId = `#${type}Commands`;
     let name = type;
 
@@ -13,17 +13,21 @@ export function addInputs(type, placeholder) {
         }
     } else {
         let currentInputs = $(`${containerId} .input-group`).length;
-        if (currentInputs >= 3) {
-            alert(`Per ridurre il numero di layer si possono aggiungere solo 3 istanze di "${type.toUpperCase()}".`);
+        if (currentInputs >= 10) {
+            alert(`Per ridurre il numero di layer si possono aggiungere solo ${getMaxIterations()} istanze di "${type.toUpperCase()}".`);
             return;
         }
     }
 
     let newInput = $('<div class="input-group mt-2">')
-        .append(`<input type="text" class="form-control" name="${name}[]" placeholder='${placeholder}' required>`)
+        .append(`<input type="text" class="form-control" name="${name}[]" placeholder='${placeholder}' value='${defaultValue}' required>`)
         .append('<button type="button" class="btn btn-danger remove-btn">Rimuovi</button>');
-    $(containerId).append(newInput);
-    $(`input[name='${name}[]']`).on("input", updatePreview);
+    
+        $(containerId).append(newInput);
+    $(`input[name='${name}[]']`).on("input", updateDockerfilePreview);
+    $(`input[name='${name}[]']`).on("input", updateComposePreview);
+
+    updateComposePreview();
 }
 
 // Aggiorna l'ordine del form per il backend
@@ -48,7 +52,7 @@ export function updateFormOrder() {
 }
 
 // Aggiorna la preview per Dockerfile
-export function updatePreview() {
+export function updateDockerfilePreview() {
     console.log($("#dockerfilePreview"));
     let dockerfile = "FROM " + $("#from").val() + "\n\n";
 
@@ -128,4 +132,73 @@ export function updatePreview() {
     });
 
     $("#dockerfilePreview").text(dockerfile);
+}
+
+// Aggiorna la preview per docker-compose
+export function updateComposePreview() {
+    let composeFile = "version: '3.8'\nservices:\n  app:\n    build:\n      context: .\n      dockerfile: Dockerfile\n";
+
+    // Funzione generale per raccogliere più istanze di comandi
+    function appendCommands(inputName) {
+        let items = [];
+
+        $("input[name='" + inputName + "[]']").each(function () {
+            let value = $(this).val().trim();
+            if (value !== '') {
+                // Rimuovi eventuali caratteri [ ] e " dalle stringhe
+                value = value.replace(/[\[\]"]/g, '');
+                items.push(value);
+            }
+        });
+
+        return items;
+    }
+
+    // Funzione per creare e aggiungere sezioni generiche
+    function appendSection(sectionName, items) {
+        if (items.length > 0) {
+            composeFile += "    " + sectionName + ":\n";
+            items.forEach(function (item) {
+                composeFile += "      - " + item + "\n";
+            });
+        }
+    }
+    
+    // Aggiungi Volumi
+    let volumes = appendCommands('volume');
+    volumes = volumes.map(volume => `.${volume}:${volume}`);
+    
+    // Aggiungi COPY come volumi
+    let copies = appendCommands('copy');
+    copies.forEach(copy => {
+        let [source, destination] = copy.split(' ', 2); // Separa la sorgente dalla destinazione
+        volumes.push(`${source}:${destination}`);
+    });
+
+    // Aggiungi ADD come volumi
+    let adds = appendCommands('add');
+    adds.forEach(add => {
+        let [source, destination] = add.split(' ', 2); // Separa la sorgente dalla destinazione
+        volumes.push(`${source}:${destination}`);
+    });
+
+    appendSection('volumes', volumes);
+
+    // Aggiungi env e expose come prima
+    let envVars = appendCommands('env');
+    appendSection('environment', envVars);
+
+    let exposedPorts = appendCommands('expose');
+    appendSection('expose', exposedPorts);
+
+    // Se EXPOSE è stato aggiunto, aggiungi anche la sezione PORTS
+    if (exposedPorts.length > 0) {
+        composeFile += "    ports:\n";
+        exposedPorts.forEach(function (port) {
+            composeFile += "      - \"" + port + ":" + port + "\"\n";
+        });
+    }
+
+    // Visualizza l'anteprima del file docker-compose.yml
+    $("#dockercomposePreview").text(composeFile);
 }

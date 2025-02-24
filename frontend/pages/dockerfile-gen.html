@@ -22,25 +22,39 @@
     <link rel="stylesheet" href="../assets/css/navbar-style.css">
     <!-- CSS footer -->
     <link rel="stylesheet" href="../assets/css/footer-style.css">
+    <!-- CSS dockercompose-edit -->
+    <link rel="stylesheet" href="../assets/css/dockercompose-edit.css">
 </head>
 
 <body>
     <div class="wrapper">
+        <!-- Navbar -->
+        <!-- navbar-view.html -->
         <div id="navbar-container"></div>
 
+        <!-- Titolo centrale della pagina -->
         <div class="container mt-4 text-center">
-            <h1 class="display-4 title-text">Dockerfile Generator</h1>
+            <h1 class="title-text display-4">Dockerfile Generator</h1>
         </div>
 
         <div class="container mt-4 mb-5">
             <div class="row">
+                <!-- Parte sinistra della pagina: form per la creazione del DockerFile -->
+                <!-- dockerfile-form-view.html -->
                 <div class="col-md-6 mb-5" id="form-container"></div>
-                <div class="col-md-6 mb-5" id="preview-container"></div>
+                <!-- dockerfile-preview-view.html -->
+                <!-- Parte destra della pagina: preview di DockerFile e/o DockerCompose -->
+                <div class="preview-container col-md-6 mb-5" id="preview-container"></div>
             </div>
         </div>
     </div>
 
+    <!-- Footer -->
+    <!-- footer-view.html -->
     <div id="footer-container"></div>
+
+    <!-- Modal di Bootstrap -->
+    <div id="dockercompose-edit"></div>
 
     <!-- jQuery -->
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
@@ -57,6 +71,8 @@
     <script type="module" src="../script/sortable-container-Init.js"></script>
     <!-- Gestione tasti -->
     <script type="module" src="../script/buttonActions.js"></script>
+    <!-- Gestione div compose -->
+    <script src="../script/dockerComposeDiv.js"></script>    
     <!-- Invio backend -->
     <script src="../script/submitHandler.js"></script>
 </body>

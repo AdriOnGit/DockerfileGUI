@@ -1,6 +1,7 @@
 // Cambiare quando non si e' piu' in localhost
 const my_server = 'localhost';
 
+const main_url = `http://${my_server}:8080`;
 const dockerfile_url = `http://${my_server}:8080/dockerfile-generator.php`;
 const compose_url = `http://${my_server}:8080/compose-generator.php`;
 
@@ -53,17 +54,18 @@ $(document).ready(function() {
             // Azione tasto submit del form
             $('#dockerfileForm').submit(function(e) {
                 e.preventDefault();
-
-                // Ottieni i dati del form
-                var formData = $(this).serialize(); // Serializza i dati del form per poter inviare con ajax
-                //console.log("Dati del form serializzati:", formData); 
                 
-                // Avvia download Dockerfile
-                sendToBackend(dockerfile_url, formData, "Dockerfile");
-
-                // Avvia download compose se il checkbox e' settato
+                // DockerCompose insieme al DockerFile
                 if ($('#composeCheckbox').is(':checked')) {
-                    sendToBackend(compose_url, formData, "docker-compose.yml");
+                    $('#dockerComposeModal').modal('show');
+                    //sendToBackend(compose_url, formData, "docker-compose.yml");
+                } else {
+                    // Ottieni i dati del form
+                    var formData = $(this).serialize(); // Serializza i dati del form per poter inviare con ajax
+                    //console.log("Dati del form serializzati:", formData); 
+                
+                    // Avvia download Dockerfile
+                    sendToBackend(dockerfile_url, formData, "Dockerfile");
                 }
             });
 

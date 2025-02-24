@@ -10,7 +10,8 @@ RUN apt-get update && apt-get install -y php apache2
 # Crea la directory /var/www/api
 RUN mkdir /var/www/api/
 # Consente ad Apache di riscrivere URL
-RUN a2enmod rewrite
+RUN a2enmod rewrite 
+RUN a2enmod headers
 
 # Copia il file config e ports di Apache nel container
 COPY ./apache-conf/000-default.conf /etc/apache2/sites-available/000-default.conf

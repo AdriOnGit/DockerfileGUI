@@ -1,4 +1,4 @@
-import { updateFormOrder, updatePreview } from './inputHandler.js';
+import { updateFormOrder, updateDockerfilePreview } from './inputHandler.js';
 
 $(document).ready(function () {
 
@@ -12,7 +12,7 @@ $(document).ready(function () {
                 ghostClass: 'sortable-ghost',
                 onEnd: function (evt) {
                     console.log("Spostato l'elemento", evt.oldIndex, "a", evt.newIndex);
-                    updatePreview();
+                    updateDockerfilePreview();
                     updateFormOrder();
                 }
             });

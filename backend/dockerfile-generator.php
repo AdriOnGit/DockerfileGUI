@@ -1,5 +1,5 @@
 <?php
-header("Access-Control-Allow-Origin: *");
+//header("Access-Control-Allow-Origin: *");
 
 // Scrive i comandi con piu' istanze sul file
 function addCommand($commandType, $commands)
@@ -15,10 +15,8 @@ function addCommand($commandType, $commands)
 // Creazione file
 $dockerfile = "../html/Dockerfiles/Dockerfile";
 
-// Initialize a variable to store the content
-$txt = '';
+$txt = "#Generato con Autodocker© 2025!\n\n";
 
-// Process the POST data and accumulate the commands
 foreach ($_POST as $key => $commands) {
     // Non stampare ***Commands
     if (strpos($key, 'Commands') !== false) {
@@ -31,9 +29,8 @@ foreach ($_POST as $key => $commands) {
     }
 }
 
-// Create the file and write everything at once
 $file = fopen($dockerfile, "w");
-fwrite($file, $txt); // Write all the accumulated content to the file
+fwrite($file, $txt);
 fclose($file);
 
 // Inizia il download
@@ -43,4 +40,7 @@ header('Content-Length: ' . filesize("$dockerfile"));
 
 // Invia il contenuto del file al browser
 readfile("$dockerfile");
+
+// Cancella il file dopo il download
+unlink($dockerfile);
 ?>

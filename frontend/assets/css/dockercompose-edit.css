@@ -1,0 +1,20 @@
+.modal-header {
+    display: flex;
+    flex-direction: column; /* Questo forza gli elementi a essere uno sopra l'altro */
+}
+
+.modal-subtitle {
+    font-size: 0.9rem;
+    color: #6c757d;
+    margin-top: 0.25rem;
+}
+
+.modal-p {
+    text-indent: 0;
+}
+
+[contenteditable="true"]:focus {
+    outline: none;
+}
+
+
