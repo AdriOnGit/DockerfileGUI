@@ -22,7 +22,7 @@ body.dark-mode {
     padding: 20px;
     height: 100%;
     overflow-y: auto;
-    border: 2px solid #0d6efd;
+    border: 2px solid #0d6efd !important;
 }
 
 .preview-box {
@@ -30,17 +30,15 @@ body.dark-mode {
     border-radius: 10px;
     background-color: #f8f9fa;
     padding: 20px;
-    height: 47%;
     overflow-y: auto;
     border: 2px solid #0d6efd;
 }
 
 .dockercompose-box {
-    bottom: 0;
+    bottom: 0; 
     border-radius: 10px;
     background-color: #f8f9fa;
     padding: 20px;
-    height: 47%;
     overflow-y: auto;
     border: 2px solid #0d6efd;
     display: none;
@@ -63,7 +61,7 @@ body.dark-mode .dockercompose-box {
     justify-content: space-between;
 }
 
-.title-text {
+.display-4.title-text {
     font-weight: bold;
     color: #0d6efd;
 }
@@ -88,11 +86,6 @@ body.dark-mode .sub-text {
 
 body.dark-mode .dockerfile {
     background-color: #151F2E;
-    padding: 10px;
-    border-radius: 10px;
-}
-
-body.dark-mode .dockerfile-text {
     padding: 10px;
     border-radius: 10px;
 }
@@ -122,10 +115,9 @@ body.dark-mode .text {
 }
 
 .custom-tooltip {
-    --bs-tooltip-bg: #00084D;
-    --bs-tooltip-color: #FAFAFA;
-    --bs-tooltip-opacity: 1;
-    font-family:'Consolas', monospace;
+    --bs-tooltip-bg: #00084D !important;
+    --bs-tooltip-color: #FAFAFA !important;
+    --bs-tooltip-opacity: 1 !important;
 }
 
 .bi {

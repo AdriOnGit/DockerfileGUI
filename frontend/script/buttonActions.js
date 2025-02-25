@@ -9,6 +9,7 @@ $(document).ready(function () {
     // Aggiorna FROM
     $(document).on("input", "#from", function () {
         updateDockerfilePreview();
+        updateComposePreview();
     });
 
     // Aggiungi LABEL
@@ -98,21 +99,80 @@ $(document).ready(function () {
         updateComposePreview();
     });
 
-    // $(document).on('click', '#nodejsBtn', function () {
-    //     console.log("Ho cliccato nodejs");
-    //     // Prendi i dati del file
-    //     $.ajax({
-    //         url: `${main_url}/dockerfileTemplates/nodejs.json`,
-    //         type: 'GET', 
-    //         dataType: 'json',
-    //         success: function(data) {              
-    //             // Inserisci i value
-    //             $('#from').val(data.from);
-    //         },
-    //         error: function(xhr, status, error) {
-    //             console.error('Error fetching JSON:', error);
-    //         }
-    //     });
+    // Template NodeJS
+    $(document).on('click', '#nodejsBtn', function () {
+        // Prendi i dati del file
+        $.ajax({
+            url: `${main_url}/dockerfileTemplates/nodejs.json`,
+            type: 'GET',
+            dataType: 'json',
+            success: function (data) {
+                // Inserisci i value
+                $('#from').val(data.from);
+                addInputs("workdir", "es: /dir", data.workdir);
+                addInputs("copy", "es: ./test.txt /dir/", data.copy);
+                addInputs("run", "es: apt-get update -y", data.run);
+                addInputs("expose", "es: 80", data.expose);
+                addInputs("cmd", '["CMD", "curl", "--fail", "http://mio-sito.com", "||", "exit", "1"]', data.cmd);
 
-    // });
+                // Aggiorna preview
+                updateDockerfilePreview();
+                updateComposePreview();
+            },
+            error: function (xhr, status, error) {
+                console.error('Error fetching JSON:', error);
+            }
+        });
+    });
+
+    // Template Flask
+    $(document).on('click', '#flaskBtn', function () {
+        // Prendi i dati del file
+        $.ajax({
+            url: `${main_url}/dockerfileTemplates/flask.json`,
+            type: 'GET',
+            dataType: 'json',
+            success: function (data) {
+                // Inserisci i value
+                $('#from').val(data.from);
+                addInputs("workdir", "es: /dir", data.workdir);
+                addInputs("copy", "es: ./test.txt /dir/", data.copy);
+                addInputs("run", "es: apt-get update -y", data.run);
+                addInputs("expose", "es: 80", data.expose);
+                addInputs("cmd", '["CMD", "curl", "--fail", "http://mio-sito.com", "||", "exit", "1"]', data.cmd);
+
+                // Update previews
+                updateDockerfilePreview();
+                updateComposePreview();
+            },
+            error: function (xhr, status, error) {
+                console.error('Error fetching JSON:', error);
+            }
+        });
+    });
+
+    // Template Apache
+    $(document).on('click', '#apacheBtn', function () {
+        // Prendi i dati del file
+        $.ajax({
+            url: `${main_url}/dockerfileTemplates/apache.json`,
+            type: 'GET',
+            dataType: 'json',
+            success: function (data) {
+                // Inserisci i value
+                $('#from').val(data.from);
+                addInputs("workdir", "es: /dir", data.workdir);
+                addInputs("copy", "es: ./test.txt /dir/", data.copy);
+                addInputs("run", "es: apt-get update -y", data.run);
+                addInputs("expose", "es: 80", data.expose);
+
+                // Update previews
+                updateDockerfilePreview();
+                updateComposePreview();
+            },
+            error: function (xhr, status, error) {
+                console.error('Error fetching JSON:', error);
+            }
+        });
+    });
 });

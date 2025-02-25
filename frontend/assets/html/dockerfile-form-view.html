@@ -4,7 +4,12 @@
 </div>
 
 <div class="card p-4 form-box">
-    <!-- <button id="nodejsBtn" type="button" class="btn-custom btn btn-secondary btn-sm">Nodejs</button> -->
+    <!-- Template NodeJS -->
+    <button id="nodejsBtn" type="button" class="btn-custom btn btn-secondary btn-sm">Nodejs</button>
+    <!-- Template NodeJS -->
+    <button id="flaskBtn" type="button" class="btn-custom btn btn-secondary btn-sm">Flask</button>
+    <!-- Template NodeJS -->
+    <button id="apacheBtn" type="button" class="btn-custom btn btn-secondary btn-sm">Apache</button>
 
     <form id="dockerfileForm">
         <!-- <br> -->
@@ -62,20 +67,20 @@
                 </i>
             </div>
 
-            <div class="form-section mb-3" id="runCommands">
-                <label class="sub-text">RUN</label>
-                <button id="addRunbtn" type="button" class="btn-custom btn btn-secondary btn-sm">Aggiungi</button>
-                <i class="bi bi-info-circle text-primary mb-1" data-bs-toggle="tooltip" data-bs-placement="top"
-                    data-bs-custom-class="custom-tooltip"
-                    data-bs-title="Esegue qualsiasi comando creando un nuovo layer, il quale viene utilizzato nell'istruzione successiva.">
-                </i>
-            </div>
-
             <div class="form-section mb-3" id="shellCommands">
                 <label class="sub-text">SHELL</label>
                 <button id="addShellbtn" type="button" class="btn-custom btn btn-secondary btn-sm">Aggiungi</button>
                 <i class="bi bi-info-circle text-primary mb-1" data-bs-toggle="tooltip" data-bs-placement="top"
                     data-bs-custom-class="custom-tooltip" data-bs-title="Imposta la shell predefinita dell'immagine.">
+                </i>
+            </div>
+            
+            <div class="form-section mb-3" id="workdirCommands">
+                <label class="sub-text">WORKDIR</label>
+                <button id="addWorkdirbtn" type="button" class="btn-custom btn btn-secondary btn-sm">Aggiungi</button>
+                <i class="bi bi-info-circle text-primary mb-1" data-bs-toggle="tooltip" data-bs-placement="top"
+                    data-bs-custom-class="custom-tooltip"
+                    data-bs-title="Imposta la directory di lavoro per istruzioni successive.">
                 </i>
             </div>
 
@@ -97,12 +102,12 @@
                 </i>
             </div>
 
-            <div class="form-section mb-3" id="workdirCommands">
-                <label class="sub-text">WORKDIR</label>
-                <button id="addWorkdirbtn" type="button" class="btn-custom btn btn-secondary btn-sm">Aggiungi</button>
+            <div class="form-section mb-3" id="runCommands">
+                <label class="sub-text">RUN</label>
+                <button id="addRunbtn" type="button" class="btn-custom btn btn-secondary btn-sm">Aggiungi</button>
                 <i class="bi bi-info-circle text-primary mb-1" data-bs-toggle="tooltip" data-bs-placement="top"
                     data-bs-custom-class="custom-tooltip"
-                    data-bs-title="Imposta la directory di lavoro per istruzioni successive.">
+                    data-bs-title="Esegue qualsiasi comando creando un nuovo layer, il quale viene utilizzato nell'istruzione successiva.">
                 </i>
             </div>
 

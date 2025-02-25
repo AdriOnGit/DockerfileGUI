@@ -48,11 +48,6 @@ body.dark-mode .dockerfile {
     background-color: #151F2E;
 }
 
-body.dark-mode .dockerfile-text {
-    padding: 10px;
-    border-radius: 10px;
-}
-
 .main-sub-title {
     font-weight: bold;
     color: #0d6efd;

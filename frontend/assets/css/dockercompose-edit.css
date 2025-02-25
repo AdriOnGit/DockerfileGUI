@@ -1,11 +1,20 @@
 .modal-header {
     display: flex;
-    flex-direction: column; /* Questo forza gli elementi a essere uno sopra l'altro */
+    flex-direction: column; 
+    background-color: #00084D;
+    color: #ffffff;
+    border-bottom: none !important;
 }
+
+/*
+body.dark-mode .btn-close {
+    --bs-btn-close-bg: url(../images/close-btn.svg) !important;
+}
+*/
 
 .modal-subtitle {
     font-size: 0.9rem;
-    color: #6c757d;
+    color: #EDF1F5;
     margin-top: 0.25rem;
 }
 
@@ -13,8 +22,12 @@
     text-indent: 0;
 }
 
+body.dark-mode .modal-content {
+    background-color: #151F2E;
+    color: #8596A5;
+}
+
 [contenteditable="true"]:focus {
     outline: none;
 }
-
 
