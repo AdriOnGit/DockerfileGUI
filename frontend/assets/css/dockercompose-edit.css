@@ -1,0 +1,42 @@
+.modal-header {
+    display: flex;
+    flex-direction: column; 
+    background-color: #00084D;
+    color: #ffffff;
+    border-bottom: none !important;
+}
+
+/*
+body.dark-mode .btn-close {
+    --bs-btn-close-bg: url(../images/close-btn.svg) !important;
+}
+*/
+
+.modal-subtitle {
+    font-size: 0.9rem;
+    color: #EDF1F5;
+    margin-top: 0.25rem;
+}
+
+.modal-p {
+    text-indent: 0;
+}
+
+body.dark-mode .modal-content {
+    background-color: #151F2E;
+    color: #8596A5;
+}
+
+[contenteditable="true"]:focus {
+    outline: none;
+}
+
+.btn-cancel {
+    float: right !important;
+    background-color: #dc3545 !important;
+    color: #ffffff !important;
+}
+
+.btn-success:hover {
+    background-color: #198754;
+}

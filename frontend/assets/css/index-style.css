@@ -13,6 +13,7 @@ body.dark-mode {
     min-height: 100%;
     display: flex;
     flex-direction: column;
+    background-color: inherit;
 }
 
 .content {
@@ -32,6 +33,11 @@ body.dark-mode .sub-text {
     color: #0d6efd;
 }
 
+body.dark-mode .product-card {
+    background-color: #151F2E;
+    color: #8596A5;
+}
+
 .dockerfile {
     background-color: #FAFAFA;
     padding: 10px;
@@ -40,13 +46,6 @@ body.dark-mode .sub-text {
 
 body.dark-mode .dockerfile {
     background-color: #151F2E;
-    padding: 10px;
-    border-radius: 10px;
-}
-
-body.dark-mode .dockerfile-text {
-    padding: 10px;
-    border-radius: 10px;
 }
 
 .main-sub-title {
@@ -56,16 +55,4 @@ body.dark-mode .dockerfile-text {
 
 body.dark-mode .text {
     color: #8596A5;
-}
-
-.footer {
-    background-color: #f8f9fa;
-    color:#000000;
-    padding: 10px 0;
-    text-align: center;
-}
-
-body.dark-mode .footer {
-    background-color: #00084D;
-    color: #ffffff;
 }

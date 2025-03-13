@@ -5,3 +5,11 @@
 .navbar .nav-link {
     color: #ffffff;
 }
+
+.nav-link:hover {
+    color: #0d6efd;
+}
+
+.btn:hover {
+    background-color: #0d6efd;
+}
