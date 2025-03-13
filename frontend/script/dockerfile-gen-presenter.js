@@ -1,3 +1,4 @@
+// Aggiungi il file indicato
 function appendContent(tag, filename) {
     $.ajax({
         url: filename,
@@ -19,6 +20,6 @@ $(document).ready(function () {
     appendContent("#form-container", "../assets/html/dockerfile-form-view.html"); // Carica il form
     appendContent("#preview-container", "../assets/html/dockerfile-preview-view.html"); // Carica la preview
     appendContent("#footer-container", "../assets/html/footer-view.html"); // Carica il footer
-    appendContent("#dockercompose-edit", "../assets/html/dockercompose-edit.html"); // Carica il footer
+    appendContent("#dockercompose-edit", "../assets/html/dockercompose-edit.html"); // Carica il modal
 });
 

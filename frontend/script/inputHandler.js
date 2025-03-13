@@ -13,8 +13,8 @@ export function addInputs(type, placeholder, defaultValue = '') {
         }
     } else {
         let currentInputs = $(`${containerId} .input-group`).length;
-        if (currentInputs >= 10) {
-            alert(`Per ridurre il numero di layer si possono aggiungere solo ${getMaxIterations()} istanze di "${type.toUpperCase()}".`);
+        if (currentInputs >= 5) {
+            alert(`Per ridurre il numero di layer si possono aggiungere solo 5 istanze di "${type.toUpperCase()}".`);
             return;
         }
     }
@@ -22,38 +22,17 @@ export function addInputs(type, placeholder, defaultValue = '') {
     let newInput = $('<div class="input-group mt-2">')
         .append(`<input type="text" class="form-control" name="${name}[]" placeholder='${placeholder}' value='${defaultValue}' required>`)
         .append('<button type="button" class="btn btn-danger remove-btn">Rimuovi</button>');
-    
-        $(containerId).append(newInput);
+
+    $(containerId).append(newInput);
     $(`input[name='${name}[]']`).on("input", updateDockerfilePreview);
     $(`input[name='${name}[]']`).on("input", updateComposePreview);
 
     updateComposePreview();
 }
 
-// Aggiorna l'ordine del form per il backend
-export function updateFormOrder() {
-    // Itera su ogni comando nel sortable-container
-    $('.sortable-container > div').each(function () {
-        let commandType = $(this).attr('id');
-        let containerId = `#${commandType}`;
-
-        // Prepara la lista di comandi
-        let commands = [];
-        $(`${containerId} .input-group`).each(function () {
-            commands.push($(this).find('input').val());
-        });
-
-        // Rimuovi input precedenti e aggiornali con quelli nuovi
-        $(`input[name='${commandType}[]']`).remove();
-        commands.forEach(command => {
-            $(containerId).append(`<input type="hidden" name="${commandType}[]" value="${command}">`);
-        });
-    });
-}
-
 // Aggiorna la preview per Dockerfile
 export function updateDockerfilePreview() {
-    console.log($("#dockerfilePreview"));
+    //console.log($("#dockerfilePreview"));
     let dockerfile = "FROM " + $("#from").val() + "\n\n";
 
     // Funzione generale per aggiungere piu' istanze di comandi
@@ -62,11 +41,9 @@ export function updateDockerfilePreview() {
         let hasCommands = false;  // Traccia se esistono comandi per questo tipo
 
         $("input[name='" + inputName + "[]']").each(function () {
-            if ($(this).val().trim() !== '') {  // Controllo input vuoto
-                dockerfile += command + " ";  // Aggiunge il comando
-                hasCommands = true;  // Esistono comandi di questo tipo, allora setto a true
-                dockerfile += $(this).val() + "\n";  // Inserisce il valore
-            }
+            dockerfile += command + " ";  // Aggiunge il comando
+            hasCommands = true;  // Esistono comandi di questo tipo, allora setto a true
+            dockerfile += $(this).val() + "\n";  // Inserisce il valore
         });
 
         if (hasCommands) {
@@ -138,7 +115,7 @@ export function updateDockerfilePreview() {
 export function updateComposePreview() {
     let composeFile = "version: '3.8'\nservices:\n  app:\n    build:\n      context: .\n      dockerfile: Dockerfile\n";
 
-    // Funzione generale per raccogliere più istanze di comandi
+    // Funzione generale per raccogliere piu' istanze di comandi
     function appendCommands(inputName) {
         let items = [];
 
@@ -163,11 +140,11 @@ export function updateComposePreview() {
             });
         }
     }
-    
+
     // Aggiungi Volumi
     let volumes = appendCommands('volume');
     volumes = volumes.map(volume => `.${volume}:${volume}`);
-    
+
     // Aggiungi COPY come volumi
     let copies = appendCommands('copy');
     copies.forEach(copy => {
@@ -201,4 +178,17 @@ export function updateComposePreview() {
 
     // Visualizza l'anteprima del file docker-compose.yml
     $("#dockercomposePreview").text(composeFile);
+}
+
+// Resetta il form cancellando tutti gli input e i campi di input
+export function resetForm() {
+    // Cancella tutti gli input
+    $('input[type="text"]').val('');
+
+    // Togli tutte le div per input
+    $('.input-group').remove();
+
+    // Aggiorna le preview
+    updateDockerfilePreview();
+    updateComposePreview();
 }

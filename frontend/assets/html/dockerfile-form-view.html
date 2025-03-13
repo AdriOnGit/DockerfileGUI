@@ -4,12 +4,17 @@
 </div>
 
 <div class="card p-4 form-box">
-    <!-- Template NodeJS -->
-    <button id="nodejsBtn" type="button" class="btn-custom btn btn-secondary btn-sm">Nodejs</button>
-    <!-- Template NodeJS -->
-    <button id="flaskBtn" type="button" class="btn-custom btn btn-secondary btn-sm">Flask</button>
-    <!-- Template NodeJS -->
-    <button id="apacheBtn" type="button" class="btn-custom btn btn-secondary btn-sm">Apache</button>
+
+    <div class="dropdown mb-3">
+        <button class="btn btn-secondary dropdown-toggle w-100" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+            Preset
+        </button>
+        <ul class="dropdown-menu w-100">
+            <li><button id="nodejsBtn" class="dropdown-item" type="button">Nodejs</button></li>
+            <li><button id="flaskBtn" class="dropdown-item" type="button">Flask</button></li>
+            <li><button id="apacheBtn" class="dropdown-item" type="button">Apache</button></li>
+        </ul>
+    </div>
 
     <form id="dockerfileForm">
         <!-- <br> -->
@@ -24,7 +29,7 @@
                 data-bs-title="Inizializza una nuova fase di build e imposta l'immagine di base per le istruzioni successive.">
             </i>
             <!-- Campo da compilare con esempio di comando -->
-            <input type="text" class="form-control" id="from" name="from[]" placeholder="es: ubuntu" value="" required>
+            <input type="text" class="form-control" id="from" name="from[]" placeholder="es: ubuntu:latest" value="" required>
         </div>
 
         <!-- Comandi opzionali spostabili -->
@@ -184,6 +189,6 @@
             </label>
         </div>
 
-        <button type="submit" class="btn btn-primary">Genera il Dockerfile!</button>
+        <button type="submit" class="btn btn-primary">Genera file!</button>
     </form>
 </div>

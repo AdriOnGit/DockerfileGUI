@@ -12,7 +12,7 @@ function sendToBackend(url, formData, name) {
         type: 'POST', // Invio a backend
         data: formData, // Input del form
         xhrFields: {
-            responseType: 'blob' // La risposta sara' un blob per il download
+            responseType: 'blob' // La risposta sara' un blob per il download (Binary Large OBject)
         },
         success: function (data) {
             //console.log("AJAX Success:", data);
@@ -67,7 +67,8 @@ $(document).ready(function () {
                     var dockerComposeContent = document.getElementById('dockercomposePreview').textContent;
                     document.querySelector('.modal-p').textContent = dockerComposeContent;
 
-                    $('#generateDockerCompose').click(function() {
+                    // Associa l'event handler al tasto generateDockerCompose
+                    $('#generateDockerCompose').off('click').on('click', function() {
                         // Prendi il contenuto modificato
                         var modifiedContent = document.querySelector('.modal-p').textContent;
                         //console.log(modifiedContent);

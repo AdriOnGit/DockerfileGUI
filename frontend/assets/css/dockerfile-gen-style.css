@@ -27,6 +27,7 @@ body.dark-mode {
 
 .preview-box {
     top: 0;
+    height: 48%;
     border-radius: 10px;
     background-color: #f8f9fa;
     padding: 20px;
@@ -34,8 +35,16 @@ body.dark-mode {
     border: 2px solid #0d6efd;
 }
 
+.dockercompose-title-box {
+    position: relative;
+    height: 4%;
+    display: flex;
+    justify-content: center;
+}
+
 .dockercompose-box {
     bottom: 0; 
+    height: 48%;
     border-radius: 10px;
     background-color: #f8f9fa;
     padding: 20px;
@@ -49,6 +58,13 @@ body.dark-mode .form-box,
 body.dark-mode .dockercompose-box {
     background-color: #151F2E;
     border: 2px solid #0d6efd;
+}
+
+.dockercompose-title {
+    position: absolute;
+    top: 18px;
+    color: #8596A5;
+    display: none;
 }
 
 .form-section {
@@ -110,10 +126,6 @@ body.dark-mode .text {
 --bs-tooltip-opacity: 1;
 }
 
-.dockercompose-title {
-    display: none;
-}
-
 .custom-tooltip {
     --bs-tooltip-bg: #00084D !important;
     --bs-tooltip-color: #FAFAFA !important;
@@ -125,4 +137,34 @@ body.dark-mode .text {
     margin-top: -3px; 
     margin-right: 10px; 
     font-size: 1.2rem;
+}
+
+.dropdown-menu {
+    border: 2px solid #0d6efd;
+}
+
+body.dark-mode .dropdown-menu {
+    background-color: #151F2E;
+    color: #8596A5;
+    border: 2px solid #0d6efd;
+}
+
+.dropdown-item {
+    text-align: center;
+    width: 100%;
+}
+
+.dropdown-item:hover {
+    background-color: #f3f4f5;
+}
+
+body.dark-mode .dropdown-item {
+    text-align: center;
+    background-color: #151F2E;
+    color: #8596A5;
+    width: 100%;
+}
+
+body.dark-mode .dropdown-item:hover {
+    background-color: #1c2535;
 }

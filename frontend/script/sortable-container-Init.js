@@ -1,4 +1,4 @@
-import { updateFormOrder, updateDockerfilePreview } from './inputHandler.js';
+import { updateDockerfilePreview } from './inputHandler.js';
 
 $(document).ready(function () {
 
@@ -13,7 +13,6 @@ $(document).ready(function () {
                 onEnd: function (evt) {
                     console.log("Spostato l'elemento", evt.oldIndex, "a", evt.newIndex);
                     updateDockerfilePreview();
-                    updateFormOrder();
                 }
             });
         } else {

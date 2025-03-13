@@ -1,12 +1,8 @@
 <?php
-header("Cache-Control: no-cache, no-store, must-revalidate");
-header("Pragma: no-cache");
-header("Expires: 0");
-
 // Scrive i comandi con piu' istanze sul file
 function addCommand($commandType, $commands)
 {
-    $commandsTxt = ''; 
+    $commandsTxt = '';
     foreach ($commands as $command) {
         $commandsTxt .= strtoupper($commandType) . " " . $command . "\n";
     }
@@ -15,20 +11,12 @@ function addCommand($commandType, $commands)
 }
 
 // Creazione file
-$dockerfile = "../html/Dockerfiles/Dockerfile";
-
+$dockerfile = "Dockerfiles/Dockerfile";
 $txt = "#Generato con Autodocker© 2025!\n\n";
 
+// Aggiungi i comandi
 foreach ($_POST as $key => $commands) {
-    // Non stampare ***Commands
-    if (strpos($key, 'Commands') !== false) {
-        continue;
-    }
-    
-    // Aggiungi il comando solo se esistono input per quel comando
-    if (is_array($commands)) {
-        $txt .= addCommand($key, $commands); 
-    }
+    $txt .= addCommand($key, $commands);
 }
 
 $file = fopen($dockerfile, "w");
@@ -45,4 +33,3 @@ readfile("$dockerfile");
 
 // Cancella il file dopo il download
 unlink($dockerfile);
-?>

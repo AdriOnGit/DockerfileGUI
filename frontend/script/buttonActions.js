@@ -1,4 +1,4 @@
-import { updateDockerfilePreview, addInputs, updateComposePreview } from './inputHandler.js';
+import { updateDockerfilePreview, addInputs, updateComposePreview, resetForm } from './inputHandler.js';
 
 // Cambiare quando non si e' piu' in localhost
 const my_server = 'localhost';
@@ -99,14 +99,18 @@ $(document).ready(function () {
         updateComposePreview();
     });
 
-    // Template NodeJS
+    // Preset NodeJS
     $(document).on('click', '#nodejsBtn', function () {
         // Prendi i dati del file
         $.ajax({
-            url: `${main_url}/dockerfileTemplates/nodejs.json`,
+            url: `${main_url}/dockerfilePresets/nodejs.json`,
             type: 'GET',
             dataType: 'json',
             success: function (data) {
+
+                // Resetta il form
+                resetForm();
+
                 // Inserisci i value
                 $('#from').val(data.from);
                 addInputs("workdir", "es: /dir", data.workdir);
@@ -119,20 +123,24 @@ $(document).ready(function () {
                 updateDockerfilePreview();
                 updateComposePreview();
             },
-            error: function (xhr, status, error) {
+            error: function (error) {
                 console.error('Error fetching JSON:', error);
             }
         });
     });
 
-    // Template Flask
+    // Preset Flask
     $(document).on('click', '#flaskBtn', function () {
         // Prendi i dati del file
         $.ajax({
-            url: `${main_url}/dockerfileTemplates/flask.json`,
+            url: `${main_url}/dockerfilePresets/flask.json`,
             type: 'GET',
             dataType: 'json',
             success: function (data) {
+
+                // Resetta il form
+                resetForm();
+
                 // Inserisci i value
                 $('#from').val(data.from);
                 addInputs("workdir", "es: /dir", data.workdir);
@@ -145,20 +153,24 @@ $(document).ready(function () {
                 updateDockerfilePreview();
                 updateComposePreview();
             },
-            error: function (xhr, status, error) {
+            error: function (error) {
                 console.error('Error fetching JSON:', error);
             }
         });
     });
 
-    // Template Apache
+    // Preset Apache
     $(document).on('click', '#apacheBtn', function () {
         // Prendi i dati del file
         $.ajax({
-            url: `${main_url}/dockerfileTemplates/apache.json`,
+            url: `${main_url}/dockerfilePresets/apache.json`,
             type: 'GET',
             dataType: 'json',
             success: function (data) {
+
+                // Resetta il form
+                resetForm();
+
                 // Inserisci i value
                 $('#from').val(data.from);
                 addInputs("workdir", "es: /dir", data.workdir);
@@ -170,7 +182,7 @@ $(document).ready(function () {
                 updateDockerfilePreview();
                 updateComposePreview();
             },
-            error: function (xhr, status, error) {
+            error: function (error) {
                 console.error('Error fetching JSON:', error);
             }
         });

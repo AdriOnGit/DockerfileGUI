@@ -1,0 +1,7 @@
+{
+    "from": "php:7.4-apache",
+    "workdir": "/var/www/html",
+    "copy": ". .",
+    "run": "docker-php-ext-install mysqli pdo pdo_mysql",
+    "expose": "80"
+}

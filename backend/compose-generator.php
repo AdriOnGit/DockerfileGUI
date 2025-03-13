@@ -1,11 +1,6 @@
 <?php
-header("Cache-Control: no-cache, no-store, must-revalidate");
-header("Pragma: no-cache");
-header("Expires: 0");
-
 // Creazione file
-$compose = "../html/Dockerfiles/docker-compose.yml";
-$file = fopen($compose, "w");
+$compose = "Dockerfiles/docker-compose.yml";
 
 if (isset($_POST['dockerComposeContent'])) {
     // Prendi il contenuto in post
@@ -17,6 +12,7 @@ $txt = "#Generato con Autodocker© 2025!\n\n";
 $txt .= $composeContent;
 
 // Scrivi il contenuto sul file
+$file = fopen($compose, "w");
 fwrite($file, $txt);
 fclose($file);
 

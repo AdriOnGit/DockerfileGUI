@@ -1,3 +1,4 @@
+// Aggiungi il file indicato
 function appendContent(tag, filename) {
     $.ajax({
         url: filename,

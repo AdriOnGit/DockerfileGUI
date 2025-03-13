@@ -1,0 +1,8 @@
+{
+    "from": "python:3.8",
+    "workdir": "/usr/src/app",
+    "copy": ". .",
+    "run": "pip install --no-cache-dir -r requirements.txt",
+    "expose": "5000",
+    "cmd": "[\"python\", \"app.py\"]"
+}

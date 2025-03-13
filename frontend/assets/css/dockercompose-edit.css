@@ -31,3 +31,12 @@ body.dark-mode .modal-content {
     outline: none;
 }
 
+.btn-cancel {
+    float: right !important;
+    background-color: #dc3545 !important;
+    color: #ffffff !important;
+}
+
+.btn-success:hover {
+    background-color: #198754;
+}
